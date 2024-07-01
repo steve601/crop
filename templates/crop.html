@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            width: 48%;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #4caf50;
+            color: #4caf50;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Recommendation System</h1>
+        <form action="/recommend" method="POST">
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="rainfall">Rainfall (mm)</label>
+                    <input type="number" id="rainfall" name="rain" required>
+                </div>
+                <div class="input-group">
+                    <label for="ph">pH Value in Soil</label>
+                    <input type="number" id="ph" name="ph" step="0.01" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="humidity">Relative Humidity (%)</label>
+                    <input type="number" id="humidity" name="hum" required>
+                </div>
+                <div class="input-group">
+                    <label for="nitrogen">Nitrogen Ratio in Soil</label>
+                    <input type="number" id="nitrogen" name="N" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="potassium">Potassium Ratio in Soil</label>
+                    <input type="number" id="potassium" name="K" required>
+                </div>
+                <div class="input-group">
+                    <label for="phosphorus">Phosphorus Ratio in Soil</label>
+                    <input type="number" id="phosphorus" name="P" required>
+                </div>
+            </div>
+            <button type="submit" class="btn">Recommend</button>
+        </form>
+        <div class="result">
+            <p> {{ text }}</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
